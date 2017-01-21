@@ -15,7 +15,7 @@
 #
 
 # Get non-open-source specific aspects
-$(call inherit-product, vendor/sony/sumire/sumire-vendor.mk)
+$(call inherit-product, vendor/sony/kagura/kagura-vendor.mk)
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
@@ -74,7 +74,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     audiod \
     audio.a2dp.default \
-    audio.primary.msm8994 \
+    audio.primary.msm8996 \
     audio.r_submix.default \
     audio.usb.default \
     libqcompostprocbundle \
@@ -115,7 +115,7 @@ PRODUCT_PACKAGES += \
 
 # Lights
 PRODUCT_PACKAGES += \
-    lights.msm8994
+    lights.msm8996
 
 # NFC config
 PRODUCT_PACKAGES += \
@@ -123,15 +123,15 @@ PRODUCT_PACKAGES += \
 
 # Multihal
 PRODUCT_PACKAGES += \
-    sensors.msm8994
+    sensors.msm8996
 
 # Display
 PRODUCT_PACKAGES += \
-    copybit.msm8994 \
-    gralloc.msm8994 \
-    hwcomposer.msm8994 \
+    copybit.msm8996 \
+    gralloc.msm8996 \
+    hwcomposer.msm8996 \
     libtinyxml \
-    memtrack.msm8994
+    memtrack.msm8996
 
 # GPS
 PRODUCT_COPY_FILES += \
@@ -148,7 +148,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/clearpad.kl:system/usr/keylayout/clearpad.kl \
     $(LOCAL_PATH)/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
     $(LOCAL_PATH)/keylayout/mhl-rcp.kl:system/usr/keylayout/mhl-rcp.kl \
-    $(LOCAL_PATH)/keylayout/msm8994-tomtom-snd-card_Button_Jack.kl:system/usr/keylayout/msm8994-tomtom-snd-card_Button_Jack.kl \
+    $(LOCAL_PATH)/keylayout/msm8996-tomtom-snd-card_Button_Jack.kl:system/usr/keylayout/msm8996-tomtom-snd-card_Button_Jack.kl \
     $(LOCAL_PATH)/keylayout/synaptics_dsx.kl:system/usr/keylayout/synaptics_dsx.kl
 
 # IRQ
@@ -200,7 +200,7 @@ PRODUCT_COPY_FILES += \
 
 # Power HAL
 PRODUCT_PACKAGES += \
-    power.msm8994
+    power.msm8996
 
 # RIL
 PRODUCT_PACKAGES += \

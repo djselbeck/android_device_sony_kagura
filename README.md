@@ -1,6 +1,6 @@
 Copyright 2016 - The CyanogenMod Project
 
-Device configuration for Sony Xperia Z3+
+Device configuration for Sony Xperia XZ
 =====================================
 
 Basic   | Spec Sheet
@@ -9,7 +9,7 @@ CPU     | Quad-core 2.0 GHz ARM® Cortex™ A57 and quad-core 1.5 GHz ARM® Cort
 CHIPSET | Qualcomm MSM8994 Snapdragon 810
 GPU     | Adreno 430
 Memory  | 3 GB
-Shipped Android Version | 5.0.2
+Shipped Android Version | 6.0
 Storage | 32 GB
 MicroSD | Up to 200 GB
 Battery | 2930 mAh (non-removable)

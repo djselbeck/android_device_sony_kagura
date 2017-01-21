@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-DEVICE_PATH := device/sony/sumire
+DEVICE_PATH := device/sony/kagura
 
 TARGET_SPECIFIC_HEADER_PATH += $(DEVICE_PATH)/include
 
@@ -24,22 +24,22 @@ BOARD_VENDOR := sony
 TARGET_USE_SDCLANG := true
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := E6633,E6653,sumire,sumire_dsds
+TARGET_OTA_ASSERT_DEVICE := F8331,F8332,kugara,kugara_dsds
 
 # Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := MSM8994
+TARGET_BOOTLOADER_BOARD_NAME := MSM8996
 TARGET_NO_BOOTLOADER := true
 
 # Platform
-TARGET_BOARD_PLATFORM := msm8994
-TARGET_BOARD_PLATFORM_GPU := qcom-adreno430
+TARGET_BOARD_PLATFORM := msm8996
+TARGET_BOARD_PLATFORM_GPU := qcom-adreno530
 
 # Architecture
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
 TARGET_CPU_ABI := arm64-v8a
 TARGET_CPU_ABI2 :=
-TARGET_CPU_VARIANT := generic
+TARGET_CPU_VARIANT := kryo
 
 TARGET_2ND_ARCH := arm
 TARGET_2ND_ARCH_VARIANT := armv7-a-neon
@@ -53,18 +53,25 @@ TARGET_USES_64_BIT_BCMDHD := true
 ENABLE_CPUSETS := true
 
 # Boot image/kernel
-BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 boot_cpus=0-5 dwc3_msm.hvdcp_max_current=1500 dwc3_msm.prop_chg_detect=Y coherent_pool=2M androidboot.selinux=enforcing
+BOARD_KERNEL_CMDLINE += user_debug=31 androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE += msm_rtb.filter=0x3F ehci-hcd.park=3
+BOARD_KERNEL_CMDLINE += dwc3.maximum_speed=high dwc3_msm.prop_chg_detect=Y
+BOARD_KERNEL_CMDLINE += coherent_pool=8M
+BOARD_KERNEL_CMDLINE += sched_enable_power_aware=1
+BOARD_KERNEL_CMDLINE += console=ttyHSL0,115200,n8
+BOARD_KERNEL_CMDLINE += lpm_levels.sleep_disabled=1
+BOARD_KERNEL_CMDLINE += androidboot.bootdevice=7464900.sdhci androidboot.selinux=permissive
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 BOARD_KERNEL_PAGESIZE := 4096
-BOARD_KERNEL_BASE := 0x00000000
-BOARD_KERNEL_TAGS_OFFSET := 0x00000100
+BOARD_KERNEL_BASE := 0x80000000
+BOARD_KERNEL_TAGS_OFFSET := 0x01E00000
 BOARD_RAMDISK_OFFSET := 0x02000000
 TARGET_KERNEL_APPEND_DTB := true
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
-TARGET_KERNEL_CONFIG := kitakami_sumire_defconfig
+TARGET_KERNEL_CONFIG := tone_kagura_defconfig
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
-TARGET_KERNEL_SOURCE := kernel/sony/msm8994
+TARGET_KERNEL_SOURCE := kernel/sony/msm8996
 
 # Audio
 AUDIO_FEATURE_ENABLED_FLAC_OFFLOAD := true
@@ -124,13 +131,13 @@ BOARD_NFC_CHIPSET := pn547
 USE_SENSOR_MULTI_HAL := true
 
 # Partitions
-BOARD_FLASH_BLOCK_SIZE := 262144 # (BOARD_KERNEL_PAGESIZE * 64)
+BOARD_FLASH_BLOCK_SIZE := 131072 # (BOARD_KERNEL_PAGESIZE * 64)
 BOARD_BOOTIMAGE_PARTITION_SIZE := 67108864
-BOARD_CACHEIMAGE_PARTITION_SIZE := 209715200
+BOARD_CACHEIMAGE_PARTITION_SIZE := 268435456
 BOARD_PERSISTIMAGE_PARTITION_SIZE := 33554432
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 67108864
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 5513412608
-BOARD_USERDATAIMAGE_PARTITION_SIZE := 24763170816
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 6197084160
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 23857184768
 
 BOARD_USES_CYANOGEN_HARDWARE := true
 BOARD_HARDWARE_CLASS += $(DEVICE_PATH)/cmhw
@@ -165,4 +172,4 @@ WPA_SUPPLICANT_VERSION      := VER_0_8_X
 WIFI_BUS := PCIE
 
 # Inherit from the proprietary version
--include vendor/sony/sumire/BoardConfigVendor.mk
+-include vendor/sony/kagura/BoardConfigVendor.mk
